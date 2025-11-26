@@ -1,6 +1,7 @@
 const {Router}=require("express")
-const {userModel}=require("../db")
+const {userModel, purchaseModel}=require("../db")
 const userRouter=Router()
+const {userMiddleware}=require("../middleware/user")
 const jwt=require("jsonwebtoken")
 const {JWT_USER_PASSWORD}=require("../config")
 
@@ -52,9 +53,14 @@ userRouter.post("/signin",async function(req,res){
 })
 
 
-userRouter.get("/purchases",function(req,res){
+userRouter.get("/purchases",userMiddleware,async function(req,res){
+  const userId=req.userId;
+  const purchases=await purchaseModel.find({
+    userId
+  })
+
   res.json({
-    message:"your courses"
+    purchases
   })
 })
 
