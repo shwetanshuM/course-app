@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./script.js" defer></script>
+  </head>
+
+  <body>
+    <div id="user">
+      USER
+      <input type="text" name="email" id="user-email" placeholder="email" />
+      <input
+        type="text"
+        name="password"
+        id="user-password"
+        placeholder="password"
+      />
+      <input type="text" name="name" id="user-name" placeholder="name" />
+      <button onclick="userSignin()">Sign In</button>
+      <button onclick="userSignup()">Sign Up</button>
+    </div>
+    <div id="admin">
+      ADMIN
+      <input type="text" name="email" id="admin-email" placeholder="email" />
+      <input
+        type="text"
+        name="password"
+        id="admin-password"
+        placeholder="password"
+      />
+      <input type="text" name="name" id="admin-name" placeholder="name" />
+      <button onclick="adminSignin()">Sign In</button>
+      <button onclick="adminSignup()">Sign Up</button>
+    </div>
+  </body>
+</html>
