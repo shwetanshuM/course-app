@@ -1,7 +1,5 @@
-console.log("🔥 script.js LOADED");
-
 async function userSignup() {
-  console.log("user signup called")
+  console.log("user signup called");
   const email = document.getElementById("user-email").value;
   const password = document.getElementById("user-password").value;
   const name = document.getElementById("user-name").value;
@@ -10,12 +8,11 @@ async function userSignup() {
     const res = await axios.post("http://localhost:3001/user/signup", {
       email,
       password,
-      name
+      name,
     });
 
     alert("You are signed up as user!");
     console.log(res.data);
-
   } catch (err) {
     console.log(err);
     alert("Signup failed: " + (err.response?.data?.error || "server error"));
@@ -23,12 +20,48 @@ async function userSignup() {
 }
 
 async function userSignin() {
-  const email=document.getElementById("user-email").value;
-  const password=document.getElementById("user-password").value;
-  const response=await axios.post("http://localhost:3001/user/signin",{
-    email:email,
-    password:password,
-  })
-  localStorage.setItem("token",response.data.token);
-  alert("you are signend in ")
+  const email = document.getElementById("user-email").value;
+  const password = document.getElementById("user-password").value;
+  try {
+    const response = await axios.post("http://localhost:3001/user/signin", {
+      email: email,
+      password: password,
+    });
+    localStorage.setItem("token", response.data.token);
+    alert("you are signed in ");
+  } catch (err) {
+    console.log(err);
+    alert("Signin failed: " + (err.response?.data?.error || "server error"));
+  }
+}
+
+async function showCourses() {
+  try {
+    const response = await axios.get("http://localhost:3001/course/preview");
+    const courses = response.data.course;
+    const container = document.getElementById("course-list");
+    container.innerHTML = "";
+    for (let i = 0; i < courses.length; i++) {
+      const c = courses[i];
+      container.innerHTML +=
+        "<div>" +
+        "<h3>" +
+        c.title +
+        "</h3>" +
+        "<p>" +
+        c.description +
+        "</p>" +
+        "<p>Price: ₹" +
+        c.price +
+        "</p>" +
+        "<img src='" +
+        c.imageUrl +
+        "' width='200'>" +
+        "<hr>" +
+        "</div>";
+    }
+  } catch (err) {
+    console.log("Failed to load courses:", err);
+    alert("Unable to load courses.");
+  }
 }
