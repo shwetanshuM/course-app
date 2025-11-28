@@ -220,4 +220,10 @@ async function create_course(){
 
 }
 
+function logout() {
+  localStorage.removeItem("token");   
+  alert("You have been logged out");
+  window.location.href = "index.html";
+}
+
 

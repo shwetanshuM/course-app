@@ -1,0 +1,48 @@
+/* Full page center alignment */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  align-items: center;       /* center vertically */
+  min-height: 100vh;         /* full screen height */
+  background: #f4f4f4;
+  font-family: Arial, sans-serif;
+}
+
+/* A centered container_home */
+#container_home {
+  width: 350px;
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Input styling */
+#container_home input {
+  width: 90%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+/* Button styling */
+#container_home button {
+  width: 95%;
+  padding: 12px;
+  margin-top: 10px;
+  background: #4CAF50;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+#container_home button:hover {
+  background: #45a049;
+}

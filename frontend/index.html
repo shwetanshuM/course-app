@@ -2,32 +2,36 @@
 <html lang="en">
   <head>
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="styles.css" />
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./script.js" defer></script>
   </head>
 
   <body>
-    <div id="user">
-      USER
-      <input type="text" name="email" id="user-email" placeholder="email" />
+    <div class="container_home">
+      <div id="user">
+      USER <br>
+      <input type="text" name="email" id="user-email" placeholder="email" /><br>
       <input
         type="text"
         name="password"
         id="user-password"
         placeholder="password"
-      />
-      <input type="text" name="name" id="user-name" placeholder="name" />
-      <button onclick="userSignin()">Sign In</button>
-      <button onclick="userSignup()">Sign Up</button>
+      /> <br>
+      <input type="text" name="name" id="user-name" placeholder="name" /><br>
+      <button onclick="userSignin()">Sign In</button><br>
+      <button onclick="userSignup()">Sign Up</button><br>
+      <button onclick="logout()">Log Out</button><br>
     </div>
-    <button onclick="go_to_admin()">Redirect to Admin page</button>
-    <button onclick="showCourses()">Show All Courses</button>
-    <button onclick="goToCourses()">Buy Any Course</button>
-    <button onclick="purchasedCourse()">Show my Purchased Courses</button>
+    <button onclick="go_to_admin()">Redirect to Admin page</button><br>
+    <button onclick="showCourses()">Show All Courses</button><br>
+    <button onclick="goToCourses()">Buy Any Course</button><br>
+    <button onclick="purchasedCourse()">Show my Purchased Courses</button><br>
 
 
-    <div id="course-list"></div>
+    <div id="course-list"></div><br>
+    </div>
+    
   </body>
 </html>
