@@ -1,4 +1,7 @@
 course selling app
+deployed live at 
+
+https://course-app-shwetanshu.up.railway.app/
 
 this is a basic full stack course selling application built using node.js, express, mongodb, and vanilla html, css, and javascript. it supports two types of users: normal users and admins.
 
