@@ -5,7 +5,7 @@ async function userSignup() {
   const name = document.getElementById("user-name").value;
 
   try {
-    const res = await axios.post("http://localhost:3001/user/signup", {
+    const res = await axios.post("course-app-shwetanshu.up.railway.app/user/signup", {
       email,
       password,
       name,
@@ -23,7 +23,7 @@ async function userSignin() {
   const email = document.getElementById("user-email").value;
   const password = document.getElementById("user-password").value;
   try {
-    const response = await axios.post("http://localhost:3001/user/signin", {
+    const response = await axios.post("course-app-shwetanshu.up.railway.app/user/signin", {
       email: email,
       password: password,
     });
@@ -54,7 +54,7 @@ async function adminSignin(){
   const email = document.getElementById("admin-email").value;
   const password = document.getElementById("admin-password").value;
   try{
-    const response=await axios.post("http://localhost:3001/admin/signin",{
+    const response=await axios.post("course-app-shwetanshu.up.railway.app/admin/signin",{
       email,
       password
     });
@@ -70,7 +70,7 @@ async function adminSignin(){
 
 async function showCourses() {
   try {
-    const response = await axios.get("http://localhost:3001/course/preview");
+    const response = await axios.get("course-app-shwetanshu.up.railway.app/course/preview");
     const courses = response.data.course;
     const container = document.getElementById("course-list");
     container.innerHTML = "";
@@ -107,7 +107,7 @@ async function loadPurchases(){
     return ;
   }
   try{
-    const response=await axios.get("http://localhost:3001/user/purchases",{
+    const response=await axios.get("course-app-shwetanshu.up.railway.app/user/purchases",{
       headers:{
         token:token
       }
@@ -139,7 +139,7 @@ function goToCourses() {
 }
 async function loadAllCourses(){
   try{
-    const response = await axios.get("http://localhost:3001/course/preview");
+    const response = await axios.get("course-app-shwetanshu.up.railway.app/course/preview");
     const courses = response.data.course;
     const container = document.getElementById("course-list");
     container.innerHTML = "";
@@ -170,7 +170,7 @@ async function buyCourse(courseId){
   }
 
   try{
-    await axios.post("http://localhost:3001/course/purchase",
+    await axios.post("http://course-app-shwetanshu.up.railway.app/course/purchase",
       {courseId:courseId},
       {headers:{token:token}},
     )
@@ -201,7 +201,7 @@ async function create_course(){
   const imageUrl = document.getElementById("course_url").value;
 
   try{
-    await axios.post("http://localhost:3001/admin/course",{
+    await axios.post("course-app-shwetanshu.up.railway.app/admin/course",{
       title,
       description,
       price,
