@@ -60,6 +60,8 @@ async function adminSignin(){
     });
     localStorage.setItem("token",response.data.token);
     alert("you are signed in as admin")
+    window.location.href = "admin_page.html";
+
   }catch(err){
         alert("Signin failed: " + (err.response?.data?.error || "server error"));
 
@@ -182,4 +184,40 @@ async function buyCourse(courseId){
 function purchasedCourse(){
   window.location.href = "purchase.html";
 }
+function go_to_admin(){
+  window.location.href="admin_page.html"
+}
+
+
+async function create_course(){
+  const token=localStorage.getItem("token");
+  if(!token){
+    alert("you arent logged in as admin");
+    return;
+  }
+  const title = document.getElementById("course_title").value;
+  const description = document.getElementById("course_description").value;
+  const price = document.getElementById("course_price").value;
+  const imageUrl = document.getElementById("course_url").value;
+
+  try{
+    await axios.post("http://localhost:3001/admin/course",{
+      title,
+      description,
+      price,
+      imageUrl
+    },{
+      headers:{token:token}
+    })
+    alert("course created")
+
+
+
+  }catch(err){
+    alert("sorry unable to creat course")
+  }
+
+
+}
+
 
